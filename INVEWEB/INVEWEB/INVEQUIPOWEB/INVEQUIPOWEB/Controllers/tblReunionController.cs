@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DAL;
+using Rotativa;
 
 namespace INVEQUIPOWEB.Views
 {
-    [Authorize(Roles = "Administrador, SubAdmin")]
+    //[Authorize(Roles = "Administrador, SubAdmin")]
 
     public class tblReunionController : Controller
     {
@@ -30,12 +31,16 @@ namespace INVEQUIPOWEB.Views
             return View(Oreunion.Listar());
         }
 
+        [Authorize(Roles = "Administrador, SubAdmin")]
+
         public ActionResult tblReunionVer(int ID)
         {
             ViewBag.Equipo = Oequipo.ListadoCmbEquipo();
             ViewBag.Persona = Opersonas.ListadoCmbPersonas();
             return View(Oreunion.Obtener(ID));
         }
+
+        [Authorize(Roles = "Administrador, SubAdmin")]
 
         public ActionResult tblReunionAdd(int ID = 0)
         {
@@ -45,25 +50,7 @@ namespace INVEQUIPOWEB.Views
             return View(ID == 0 ? new tblReunion() : Oreunion.Obtener(ID));
         }
 
-        //public PartialViewResult tblReunionEquipo (int Equipo_id)
-        //{
-
-        //    var oEquipo = Oreunion.Listar(Equipo_id);
-        //    //Listar los equipos disponibles
-        //    ViewBag.Equipos = oEquipo;
-
-        //    //Listar Equipos Disponibles para la reunion
-        //    ViewBag.oEquipo = Oequipo.tblEquipoDisponibles(Equipo_id);
-
-        //    Oreunion.Equipo_Id = Equipo_id;
-
-        //    return PartialView(Oreunion);
-
-
-
-
-        //}
-
+        [Authorize(Roles = "Administrador, SubAdmin")]
 
         public JsonResult Guardar(tblReunion model)
         {
@@ -78,12 +65,23 @@ namespace INVEQUIPOWEB.Views
             }
             return Json(rm);
         }
+        [Authorize(Roles = "Administrador, SubAdmin")]
 
         public ActionResult tblReunionEliminar(int ID)
         {
             Oreunion.IDReunion = ID;
             Oreunion.Eliminar();
             return Redirect("~/tblReunion/tblReunionListar");
+        }
+
+        [Authorize(Roles = "Administrador, SubAdmin")]
+
+        public ActionResult Print()
+        {
+            return new ActionAsPdf("tblReunionListar")
+            {
+                FileName = Server.MapPath("~/Content/Reuniones.pdf")
+            };
         }
     }
 }

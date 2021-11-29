@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DAL;
+using Rotativa;
 
 namespace INVEQUIPOWEB.Controllers
 {
-    [Authorize (Roles ="Administrador, SubAdmin")]
+    //[Authorize (Roles ="Administrador, SubAdmin")]
     public class tblEquipoController : Controller
     {
 
@@ -24,15 +25,21 @@ namespace INVEQUIPOWEB.Controllers
             return View(Oequipo.Listar());
         }
 
+        [Authorize(Roles = "Administrador, SubAdmin")]
+
         public ActionResult tblEquipoVer(int ID)
         {
             return View(Oequipo.Obtener(ID));
         }
 
+        [Authorize(Roles = "Administrador, SubAdmin")]
+
         public ActionResult tblEquiposAdd(int ID = 0)
         {
             return View(ID == 0 ? new tblEquipo() : Oequipo.Obtener(ID));
         }
+
+        [Authorize(Roles = "Administrador, SubAdmin")]
 
         public JsonResult Guardar(tblEquipo model)
         {
@@ -48,6 +55,8 @@ namespace INVEQUIPOWEB.Controllers
             return Json(rm);
         }
 
+        [Authorize(Roles = "Administrador, SubAdmin")]
+
         public ActionResult tblEquipoEliminar(int ID)
         {
             Oequipo.ID_Equipo = ID;
@@ -55,8 +64,15 @@ namespace INVEQUIPOWEB.Controllers
             return Redirect("~/tblEquipo/tblEquipoListar");
         }
 
+        [Authorize(Roles = "Administrador, SubAdmin")]
 
-
+        public ActionResult Print()
+        {
+            return new ActionAsPdf("tblEquipoListar")
+            {
+                FileName = Server.MapPath("~/Content/Equipos.pdf")
+            };
+        }
 
 
 

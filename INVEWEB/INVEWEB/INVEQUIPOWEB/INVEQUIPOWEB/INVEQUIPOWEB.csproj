@@ -59,6 +59,9 @@
     <Reference Include="Microsoft.ReportViewer.WebForms.15.0.0.0.Fakes">
       <HintPath>FakesAssemblies\Microsoft.ReportViewer.WebForms.15.0.0.0.Fakes.dll</HintPath>
     </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -218,6 +221,10 @@
     <Content Include="Images\sort_both.png" />
     <Content Include="Images\sort_desc.png" />
     <Content Include="Images\sort_desc_disabled.png" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
@@ -228,6 +235,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Fakes Include="Fakes\Microsoft.ReportViewer.WebForms.fakes" />
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\DatePickerReady.js" />
@@ -302,6 +310,7 @@
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\ManageUserRoles.cshtml" />
+    <Content Include="Views\tblPersonas\ReportePersona.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

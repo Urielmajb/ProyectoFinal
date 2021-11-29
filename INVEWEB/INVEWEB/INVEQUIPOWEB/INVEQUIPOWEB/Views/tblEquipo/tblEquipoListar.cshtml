@@ -13,6 +13,10 @@
     <a href="~/tblEquipo/tblEquiposAdd" class="btn btn-warning pull-right"> Agregar Equipo </a>
 </h2>
 
+<h2 class="page-header">
+    <a href="@Url.Action("Print", "tblEquipo")" class="btn btn-warning pull-right"> Exportar PDF </a>
+</h2>
+
 @*@Html.ActionLink("Exportar a Excel", "Reports", new { ReportType = "Excel" })
 @Html.ActionLink("Exportar a PDF", "Reports", new { ReportType = "PDF" })
 @Html.ActionLink("Exportar a Word", "Reports", new { ReportType = "Word" })*@
