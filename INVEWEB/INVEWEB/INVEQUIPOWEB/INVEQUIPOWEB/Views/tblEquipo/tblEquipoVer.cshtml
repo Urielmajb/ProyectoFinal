@@ -1,0 +1,180 @@
+﻿@model DAL.tblEquipo
+
+@{
+    ViewBag.Title = "tblEquipoVer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel panel-default">
+        <div class="panel-heading"> Reunion:  @(Model.ID_Equipo > 0 ? Model.NOM_EQUIPO : "Nuevo Equipo") </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NOM_EQUIPO, "Equipo: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        @Html.EditorFor(model => model.NOM_EQUIPO, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NOM_EQUIPO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CODIGO_ACTIVO, "Codigo Activo: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        @Html.EditorFor(model => model.CODIGO_ACTIVO, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CODIGO_ACTIVO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ACTIVO, "Estado: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        @Html.EditorFor(model => model.ACTIVO, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ACTIVO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CANTIDAD, "Cantidad: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        @Html.EditorFor(model => model.CANTIDAD, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CANTIDAD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DISPOSITIVO, "Tipo: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        @Html.EditorFor(model => model.DISPOSITIVO, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DISPOSITIVO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+}
+
+<!-- Button trigger modal -->
+@*<div class="text-left">
+        <a href="#" data-toggle="modal" data-target="#ModalEliminar" class="btn btn-danger">Eliminar</a>
+        <a href="~/Cursos/CursosListar" class="btn btn-danger">Regresar</a>
+    </div>*@
+
+<div class="text-left">
+    <a href="#" data-toggle="modal" data-target="#ModalEliminar" class="btn btn-danger">Eliminar</a>
+
+    @*<button data-ajax="true" data-confirm="?Esta se de Guardar el curso¿"
+                type="submit" class="btn btn-primary">
+            Guardar
+        </button>*@
+    <a class="btn btn-primary" href="~/tblEquipo/tblEquipoListar">Regresar</a>
+</div>
+
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirmación de Borrado</h4>
+            </div>
+            <div class="modal-body">
+                <p>Desea borrar '@Model.NOM_EQUIPO'?</p>
+                <p>
+                    <strong>Esta Seguro de Continuar?</strong>
+                </p>
+            </div>
+            <div class="modal-footer">
+                @if (Model.ID_Equipo > 0)
+                {
+                    <a href="/tblEquipo/tblEquipoEliminar/@Model.ID_Equipo"
+                       class="btn btn-danger">Si, Borrar el Equipo</a>}
+                <button type="button" class="btn btn-success" data-dismiss="modal">
+                    No, Borrar el Equipo
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div>
+        <h4>tblEquipo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_Equipo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_Equipo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NOM_EQUIPO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NOM_EQUIPO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CODIGO_ACTIVO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CODIGO_ACTIVO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ACTIVO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ACTIVO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CANTIDAD)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CANTIDAD)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DISPOSITIVO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DISPOSITIVO)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Equipo }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

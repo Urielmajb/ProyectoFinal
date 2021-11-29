@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INVEQUIPOWEB", "INVEQUIPOWEB\INVEQUIPOWEB.csproj", "{BC8D4447-203B-454F-9E88-78B93D302FB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{D5F9D877-5B6E-4411-8FD7-7FF85BCC015F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC8D4447-203B-454F-9E88-78B93D302FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC8D4447-203B-454F-9E88-78B93D302FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC8D4447-203B-454F-9E88-78B93D302FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC8D4447-203B-454F-9E88-78B93D302FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5F9D877-5B6E-4411-8FD7-7FF85BCC015F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5F9D877-5B6E-4411-8FD7-7FF85BCC015F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5F9D877-5B6E-4411-8FD7-7FF85BCC015F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5F9D877-5B6E-4411-8FD7-7FF85BCC015F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E030F78-387B-46E4-A1EC-B4820ABC5314}
+	EndGlobalSection
+EndGlobal
